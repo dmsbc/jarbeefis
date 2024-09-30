@@ -34,6 +34,11 @@ jobs:
           echo "See the deployment at https://buggzradio.github.io/jarbeefis" >> email.txt
           echo "Sending email to: $EMAIL_TO" >> email.txt
           
+          # Debugging: Output environment variables
+          echo "OUTLOOK_USER: $OUTLOOK_USER" >> email.txt
+          echo "DEPLOY_STATUS: $DEPLOY_STATUS" >> email.txt
+          echo "EMAIL_TO: $EMAIL_TO" >> email.txt
+
           # Check if OUTLOOK_USER is set
           if [ -z "$OUTLOOK_USER" ]; then
             echo "OUTLOOK_USER is not set!" >> email.txt
