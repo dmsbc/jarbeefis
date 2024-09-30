@@ -9,12 +9,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write  # Allow the token to write to the repository
+
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3  # Updated to v3
+        uses: actions/checkout@v3
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4  # Updated to v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./  # Root directory for GitHub Pages
