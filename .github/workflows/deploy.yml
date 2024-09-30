@@ -22,21 +22,29 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./  # Root directory for GitHub Pages
 
-      - name: Notify Deployment Status
-        env:
-          OUTLOOK_USER: ${{ secrets.OUTLOOK_USER }}
-          OUTLOOK_PASS: ${{ secrets.OUTLOOK_PASS }}
-          DEPLOY_STATUS: ${{ job.status }}
-          EMAIL_TO: 29henbar@draschools.org  # Recipient's email
-        run: |
-          echo "Subject: GitHub Pages Deploy Status" > email.txt
-          echo "Deployment Status: $DEPLOY_STATUS" >> email.txt
-          echo "See the deployment at https://buggzradio.github.io/jarbeefis" >> email.txt
-          
-          # Send the email using curl
-          curl --url 'smtp://smtp.office365.com:587' --ssl-reqd \
-            --mail-from "$OUTLOOK_USER" \
-            --mail-rcpt "$EMAIL_TO" \
-            --upload-file email.txt \
-            --user "$OUTLOOK_USER:$OUTLOOK_PASS" \
-            --header "Content-Type: text/plain"
+          - name: Notify Deployment Status
+          env:
+            OUTLOOK_USER: ${{ secrets.OUTLOOK_USER }}
+            OUTLOOK_PASS: ${{ secrets.OUTLOOK_PASS }}
+            DEPLOY_STATUS: ${{ job.status }}
+            EMAIL_TO: 29henbar@draschools.org  # Recipient's email
+          run: |
+            echo "Deployment Status: $DEPLOY_STATUS" >> email.txt
+            echo "See the deployment at https://buggzradio.github.io/jarbeefis" >> email.txt
+            echo "Sending email to: $EMAIL_TO" >> email.txt
+            
+            # Check if OUTLOOK_USER is set
+            if [ -z "$OUTLOOK_USER" ]; then
+              echo "OUTLOOK_USER is not set!" >> email.txt
+            else
+              echo "OUTLOOK_USER is set." >> email.txt
+            fi
+  
+            # Send the email using curl
+            curl --url 'smtp://smtp.office365.com:587' --ssl-reqd \
+              --mail-from "$OUTLOOK_USER" \
+              --mail-rcpt "$EMAIL_TO" \
+              --upload-file email.txt \
+              --user "$OUTLOOK_USER:$OUTLOOK_PASS" \
+              --header "Content-Type: text/plain"
+  
