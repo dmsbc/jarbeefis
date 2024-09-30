@@ -29,22 +29,18 @@ jobs:
           DEPLOY_STATUS: ${{ job.status }}
           EMAIL_TO: 29henbar@draschools.org  # Recipient's email
         run: |
-          echo "Subject: GitHub Pages Deploy Status" > email.txt
-          echo "Deployment Status: $DEPLOY_STATUS" >> email.txt
-          echo "See the deployment at https://buggzradio.github.io/jarbeefis" >> email.txt
-          echo "Sending email to: $EMAIL_TO" >> email.txt
-          
-          # Debugging: Output environment variables
-          echo "OUTLOOK_USER: $OUTLOOK_USER" >> email.txt
-          echo "DEPLOY_STATUS: $DEPLOY_STATUS" >> email.txt
-          echo "EMAIL_TO: $EMAIL_TO" >> email.txt
+          # Create email content
+          EMAIL_CONTENT="Subject: GitHub Pages Deploy Status\n"
+          EMAIL_CONTENT+="Deployment Status: $DEPLOY_STATUS\n"
+          EMAIL_CONTENT+="See the deployment at https://buggzradio.github.io/jarbeefis\n"
+          EMAIL_CONTENT+="Sending email to: $EMAIL_TO\n"
 
-          # Check if OUTLOOK_USER is set
-          if [ -z "$OUTLOOK_USER" ]; then
-            echo "OUTLOOK_USER is not set!" >> email.txt
-          else
-            echo "OUTLOOK_USER is set." >> email.txt
-          fi
+          # Output email content to a temporary file
+          echo -e "$EMAIL_CONTENT" > email.txt
+
+          # Debug: Print the email content to logs
+          echo "Email content:"
+          cat email.txt
 
           # Send the email using curl
           curl --url 'smtp://smtp.office365.com:587' --ssl-reqd \
