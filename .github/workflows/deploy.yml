@@ -1,0 +1,39 @@
+name: Build and Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change if your default branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Root directory for GitHub Pages
+
+      - name: Notify Deployment Status
+        env:
+          OUTLOOK_USER: ${{ secrets.OUTLOOK_USER }}
+          OUTLOOK_PASS: ${{ secrets.OUTLOOK_PASS }}
+          DEPLOY_STATUS: ${{ job.status }}
+          EMAIL_TO: <29henbar@draschools.org>  # Change to the recipient's email
+        run: |
+          echo "Subject: GitHub Pages Deploy Status" > email.txt
+          echo "Deployment Status: $DEPLOY_STATUS" >> email.txt
+          echo "See the deployment at https://buggzradio.github.io/jarbeefis" >> email.txt
+          
+          # Send the email using curl
+          curl --url 'smtp://smtp.office365.com:587' --ssl-reqd \
+            --mail-from "$OUTLOOK_USER" \
+            --mail-rcpt "$EMAIL_TO" \
+            --upload-file email.txt \
+            --user "$OUTLOOK_USER:$OUTLOOK_PASS" \
+            --header "Content-Type: text/plain"
