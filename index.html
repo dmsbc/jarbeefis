@@ -87,6 +87,7 @@
         // Fetch a meme on page load
         getRandomMeme();
       </script>
+    
       
     
     <main>
@@ -116,5 +117,37 @@
     </main>
 lol
     <img src="/jarbeefis/assets/hq720.jpg" alt="Lez Goooooooo!" style="width: 100%; height: auto;">    
+    <div style="border: none; width: 100%; max-width: 600px; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+        <div id="joke-container" style="margin: 20px auto; text-align: center;">
+            <p id="joke" style="font-size: 1.2rem; color: white;">Loading joke...</p>
+        </div>
+    </div>
+    
+    <script>
+        const jokeElement = document.getElementById('joke');
+        const newJokeBtn = document.getElementById('new-joke-btn');
+    
+        function fetchJoke() {
+            fetch('https://icanhazdadjoke.com/', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                jokeElement.textContent = data.joke;
+            })
+            .catch(error => {
+                jokeElement.textContent = 'Oops! Failed to fetch a joke.';
+            });
+        }
+    
+        // Fetch the first joke when the page loads
+        fetchJoke();
+    
+        // Fetch a new joke when the button is clicked
+        newJokeBtn.addEventListener('click', fetchJoke);
+    </script>
+    
 </body>
 </html>
