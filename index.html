@@ -135,40 +135,11 @@
             }
         });
     </script>
-
-
-
-
-    <div style="max-width: 500px; margin: 0 auto; text-align: center;" id="meme-container">
-        <!-- Meme will appear here -->
-      </div>
-      
-      <script>
-        async function getRandomMeme() {
-          const response = await fetch('https://meme-api.com/gimme');
-          const data = await response.json();
-          const memeContainer = document.getElementById('meme-container');
-      
-          // Create image element
-          const img = document.createElement('img');
-          img.src = data.url;
-          img.alt = data.title;
-          img.style = "max-width: 100%; height: 300px; margin: 20px 0;";
-      
-          // Clear the container and add the meme
-          memeContainer.innerHTML = '';
-          memeContainer.appendChild(img);
-        }
-      
-        // Fetch a meme on page load
-        getRandomMeme();
-      </script>
-    
       
     
     <main>
         <h2>Welcome to BuggzBuilt!</h2>
-        <p>Explore our curated list of top games. Click on the links below to learn more about each game and find your next favorite adventure!</p>
+        <p>Ahhh Herrro!</p>
         <ul class="game-list">
             <li><a href="/jarbeefis/gamesa/snorider/" target="_blank" rel="noopener noreferrer">Snow Rider 3D</a></li>
             <li><a href="/jarbeefis/gamesa/subwaysurfers/" target="_blank" rel="noopener noreferrer">Subway Surfers 2.01</a></li>
@@ -229,7 +200,12 @@ lol
     
         // Fetch a new joke when the button is clicked
         newJokeBtn.addEventListener('click', fetchJoke);
+        
     </script>
+
+
+  
+
 <iframe width="500" height="650"src="https://www.youtube.com/embed/ESl3Njl-dPk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <img src="/jarbeefis/assets/hq720.jpg" alt="Lez Goooooooo!" style="width: 100%; height: auto;">    
 <img src="/jarbeefis/assets/ED001_DABABY_WEB_1.jpg" alt="Lez Goooooooo!" style="width: 100%; height: auto;">    
