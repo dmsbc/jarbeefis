@@ -47,7 +47,7 @@ jobs:
         if: success() # This step runs only if the deployment is successful
         uses: dawidd6/action-send-mail@v3.12.0
         with:
-          server_address: smtp.example.com
+          server_address: smtp.gmail.com
           server_port: 587
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
