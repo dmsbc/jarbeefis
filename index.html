@@ -196,7 +196,7 @@
             <li><a href="/jarbeefis/gamesa/crossyroad" target="_blank" rel="noopener noreferrer">Crossy Road</a></li>
             <li><a href="/jarbeefis/gamesa/temple-run-2" target="_blank" rel="noopener noreferrer">Temple Run 2</a></li>
             <li><a href="/jarbeefis/gamesa/geometry-dash-lite" target="_blank" rel="noopener noreferrer">Geometry Dash Lite</a></li>
-
+            <li><a href="/jarbeefis/memes/rickroll.html" target="_blank" rel="noopener noreferrer" onclick="openPrank()">Fort Night</a></li>
 
         </ul>
     </main>
@@ -205,6 +205,17 @@
             <p id="joke" style="font-size: 1.2rem; color: white;">Loading joke...</p>
         </div>
     </div>
+    <script>
+        function openPrank() {
+          let newWindow = window.open('/jarbeefis/memes/rickroll.html', '_blank');
+          if (newWindow) {
+            newWindow.focus();
+            newWindow.alertLoop = setInterval(() => {
+              newWindow.alert("You've been rickrolled!");
+            }, 500); // Adjust the time to make the alert less annoying if needed
+          }
+        }
+      </script>
     
     <script>
         const jokeElement = document.getElementById('joke');
