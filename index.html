@@ -27,6 +27,17 @@
             text-align: center;
             margin-bottom: 100px;
         }
+
+        a {
+    color: white;
+    text-decoration: none; /* Optional: removes underline */
+}
+
+a:hover {
+    color: green;
+}
+
+
         header {
             background-color: #282c34;
             color: white;
@@ -85,6 +96,23 @@
             white-space: pre-wrap; /* Preserve whitespace */
             font-family: monospace; /* Ensure monospace font is used */
             font-size: 18px; /* Adjust size for readability */
+        }
+        .carousel-container {
+            width: 100%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .carousel-item {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        h2, h3, p {
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -151,11 +179,28 @@
         });
     </script>
       
-    
     <main>
-        <h2>Welcome to BuggzBuilt!</h2>
-        <p>Henry on Top, and you know it...</p>
-        <h3>I see you Mrs. Dubey! Don't block this pls!</h3>
+        <h2>Welcome to BuggzBuilt</h2>
+
+            <div class="carousel-container">
+                <div class="carousel-item active">
+                    <h3>I'm glad you're here, actually, no I'm not.</h3>
+                </div>
+            <div class="carousel-item">
+            <p><a href="https://github.com/buggzradio/jarbeefis">Check my Github</a></p>
+            </div>
+            <div class="carousel-item">
+                <p>Henry on Top, and you know it...</p>
+            </div>
+            <div class="carousel-item">
+                <h3>I see you Mrs. Dubey! Don't block this pls!</h3>
+            </div>
+            <div class="carousel-item">
+                <p><a href="/jarbeefis/contact">Request A Game</a></p>
+                </div>
+        </div>
+    
+
         <ul class="game-list">
             <li><a href="/jarbeefis/gamesa/snorider/" target="_blank" rel="noopener noreferrer">Snow Rider 3D</a></li>
             <li><a href="/jarbeefis/gamesa/subwaysurfers/" target="_blank" rel="noopener noreferrer">Subway Surfers 2.01</a></li>
@@ -225,6 +270,20 @@
           }
         }
       </script>
+
+<script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+
+    function showNextItem() {
+        items[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % totalItems;
+        items[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextItem, 5000); // Change item every 3 seconds
+</script>
     
     <script>
         const jokeElement = document.getElementById('joke');
