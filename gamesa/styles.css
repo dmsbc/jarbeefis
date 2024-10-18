@@ -36,11 +36,16 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: #333;
+    font-weight: normal;
+
 }
 
 .game-item:hover {
     transform: scale(1.05);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 10px 35px darkblue;
+    background-color: darkblue;
+    color: white;
+    font-weight: bold;
 }
 
 .game-item img {
