@@ -26,11 +26,14 @@
 <body>
     <header>
         <div class="header">
-            <h1>Welcome to buggzbuilt</h1>
+            <h1>Welcome to the only currently burning dumpseter fire on the internet!</h1>
             <a href=/jarbeefis><button class="btn">Home</button></a>
             <a href=/jarbeefis/gamesa><button class="btn">Games</button></a>
             <a href=/jarbeefis/resources><button class="btn">Resources</button></a>
             <a href=/jarbeefis/contact><button class="btn">Contact</button></a>
+            <a href=/jarbeefis/memes/song.html><button class="btn">That song (yall alr know)</button></a>
+            <button class="btn" onclick="changePanicSettings()">Change Panic Key</button>
+
 
  
     </header>
@@ -39,54 +42,7 @@
 
 
 
-    <!-- Panic Key and Destination URL Script -->
-    <script>
-        // Helper function to get a cookie by name
-        function getCookie(name) {
-            let value = "; " + document.cookie;
-            let parts = value.split("; " + name + "=");
-            if (parts.length === 2) return parts.pop().split(";").shift();
-        }
-
-        // Helper function to set a cookie
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        // Default panic key and destination
-        let panicKey = getCookie('panicKey') || 'P';
-        let destinationURL = getCookie('destinationURL') || 'https://classroom.google.com';
-
-        // If no cookies are set, ask user for input and save to cookies
-        if (!getCookie('panicKey') || !getCookie('destinationURL')) {
-            panicKey = prompt('Enter the panic key (default is "P"):', panicKey);
-            destinationURL = prompt('Enter the destination URL (default is Google Classroom):', destinationURL);
-            setCookie('panicKey', panicKey, 365); // Store the panic key for 1 year
-            setCookie('destinationURL', destinationURL, 365); // Store the destination URL for 1 year
-        }
-
-        // Function to change panic key and URL manually through a button click
-        function changePanicSettings() {
-            panicKey = prompt('Enter the panic key (default is "P"):', panicKey);
-            destinationURL = prompt('Enter the destination URL (default is Google Classroom):', destinationURL);
-            setCookie('panicKey', panicKey, 365); // Update panic key cookie
-            setCookie('destinationURL', destinationURL, 365); // Update destination URL cookie
-        }
-
-        // Listen for the panic key press
-        document.addEventListener('keydown', function(event) {
-            if (event.key.toUpperCase() === panicKey.toUpperCase()) {
-                window.location.href = destinationURL;
-            }
-        });
-    </script>
-      
+  
     <main>
             <div class="carousel-container">
                 <div class="carousel-item active">
@@ -115,6 +71,8 @@
                 </div>
 
         </div>
+
+        <h2>Games:</h2>
             <ul class="game-list">
             <li><a href="/jarbeefis/gamesa/snorider/" target="_blank" rel="noopener noreferrer">Snow Rider 3D</a></li>
             <li><a href="/jarbeefis/gamesa/subwaysurfers/" target="_blank" rel="noopener noreferrer">Subway Surfers 2.01</a></li>
@@ -132,6 +90,58 @@
             <p id="joke" style="font-size: 1.2rem; color: white;">Loading joke...</p>
         </div>
     </div>
+
+
+  <!-- Panic Key and Destination URL Script -->
+  <script>
+    // Helper function to get a cookie by name
+    function getCookie(name) {
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    // Helper function to set a cookie
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    // Default panic key and destination
+    let panicKey = getCookie('panicKey') || 'P';
+    let destinationURL = getCookie('destinationURL') || 'https://classroom.google.com';
+
+    // If no cookies are set, ask user for input and save to cookies
+    if (!getCookie('panicKey') || !getCookie('destinationURL')) {
+        panicKey = prompt('Enter the panic key (default is "P"):', panicKey);
+        destinationURL = prompt('Enter the destination URL (default is Google Classroom):', destinationURL);
+        setCookie('panicKey', panicKey, 365); // Store the panic key for 1 year
+        setCookie('destinationURL', destinationURL, 365); // Store the destination URL for 1 year
+    }
+
+    // Function to change panic key and URL manually through a button click
+    function changePanicSettings() {
+        panicKey = prompt('Enter the panic key (default is "P"):', panicKey);
+        destinationURL = prompt('Enter the destination URL (default is Google Classroom):', destinationURL);
+        setCookie('panicKey', panicKey, 365); // Update panic key cookie
+        setCookie('destinationURL', destinationURL, 365); // Update destination URL cookie
+    }
+
+    // Listen for the panic key press
+    document.addEventListener('keydown', function(event) {
+        if (event.key.toUpperCase() === panicKey.toUpperCase()) {
+            window.location.href = destinationURL;
+        }
+    });
+</script>
+  
+
+
     <script>
         function openPrank() {
           let newWindow = window.open('/jarbeefis/memes/rickroll.html', '_blank');
@@ -188,10 +198,6 @@
 
 
 <footer>
-    <button class="btn" onclick="changePanicSettings()">Change Panic Key</button>
-    <a href=/jarbeefis/contact><button class="btn">Request a Game/Resource ;)</button></a>
-    <a href=/jarbeefis/memes/song.html><button class="btn">That song (yall alr know)</button></a>
-
-
+    <p>Copyright &copy; 202, actually, nevermind, copy this trash pile if you wish.</p>
 </footer>
 </html>
