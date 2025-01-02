@@ -1,0 +1,25 @@
+name: Sync with Upstream
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # This runs every 30 minutes
+  workflow_dispatch:  # Allows manual trigger if needed
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        uses: actions/setup-git@v1
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/your-upstream-repo.git
+
+      - name: Fetch and merge upstream changes
+        run: |
+          git fetch upstream
+          git merge upstream/main  # Replace "main" with your upstream branch name
+          git push origin main  # Push changes to your repo if needed
