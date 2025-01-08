@@ -4,63 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        form {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        button {
-            background-color: #5cb85c;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #4cae4c;
-        }
-
-        .success-message {
-            display: none;
-            margin-top: 20px;
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <header>
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="https://i0.wp.com/www.patspropaganda.com/wp-content/uploads/2020/07/Dumpster-fire-pic.jpg?resize=1024%2C1024&ssl=1" alt="Logo">
+        </div>
+        
+        <!-- Title Section -->
+        <div class="title">
+            DF by Buggz        
+        </div>
+        
+        <!-- Navigation Menu -->
+
+
+<!-- Button Section -->
+<div class="buttons">
+    <!-- Link buttons -->
+    <a href="/jarbeefis">
+        <button class="btn">Home</button>
+    </a>
+    <a href="/jarbeefis/gamesa">
+        <button class="btn">Games</button>
+    </a>
+    <a href="/jarbeefis/resources">
+        <button class="btn">Resources</button>
+    </a>
+    <a href="/jarbeefis/contact">
+        <button class="btn">Contact</button>
+    </a>
+    <a href="https://discord.gg/VMf92b5D3f" target="_blank">
+        <button class="btn">Join the Discord!</button>
+    </a>
+    <!-- Button with JS function -->
+    <button class="btn" onclick="changePanicSettings()">Change Panic Key</button>
+</div>
+
+    </header>
+
     <h1>Contact Me</h1>
-            <a href=/jarbeefis><button class="btn">Home</button></a>
-            <a href=/jarbeefis/gamesa><button class="btn">Games</button></a>
-            <a href=/jarbeefis/resources><button class="btn">Resources</button></a>
-            <a href=/jarbeefis/contact><button class="btn">Contact</button></a>
 
 
     <form id="contact-form" action="https://formspree.io/f/xovqaklk" method="POST">
@@ -76,6 +62,9 @@
         <button type="submit">Send</button>
     </form>
     
+
+
+
     <div class="success-message" id="success-message">
         Thank you for your message! I will get back to you soon.
     </div>
@@ -109,4 +98,28 @@
         });
     </script>
 </body>
+<footer>
+    <!-- Footer Content -->
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="https://i0.wp.com/www.patspropaganda.com/wp-content/uploads/2020/07/Dumpster-fire-pic.jpg?resize=1024%2C1024&ssl=1" alt="Footer Logo">
+        </div>
+        
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+
+            </ul>
+        </div>
+        
+        <div class="footer-socials">
+            <a href="#">Facebook</a>
+
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        &copy; 2025 Buggz | All rights reserved.
+    </div>
+</footer>
 </html>
