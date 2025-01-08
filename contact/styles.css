@@ -1,30 +1,52 @@
-/* styles.css */
-
-* {
-    box-sizing: border-box;
-}
-
-
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 10px;
+    padding: 20px;
+    background-color: black;
 }
 
-a {
+h1 {
     color: white;
-    text-decoration: underline;
 }
 
-a:hover {
-    color: grey;
-    text-decoration: underline;
+form {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #1c1c1c;
 }
 
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #333; /* Dark button background */
+    color: #fff; /* Light text color */
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4caf50;
+}
+
+.success-message {
+    display: none;
+    margin-top: 20px;
+    color: green;
+}
 /* Header Styles */
 header {
     display: flex;
@@ -114,41 +136,6 @@ nav ul li a:hover {
 }
 /* Header Styles */
 
-
-
-main {
-    background-color: #000000;
-}
-
-h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-h2 {
-    font-size: 1.5em;
-}
-
-.game-list {
-    list-style: none;
-    padding: 0;
-}
-
-.game-list li {
-    margin: 10px 0;
-}
-
-.game-list a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.game-list a:hover {
-    color: #4caf50;
-}
-
 /* Footer Styles */
 footer {
     background-color: #1c1c1c; /* Darker background for footer */
@@ -220,50 +207,4 @@ footer {
         flex-direction: column;
         gap: 10px;
     }
-}
-
-
-.btn {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn:hover {
-    background-color: white;
-    color: black;
-    transform: scale(1.1);
-}
-
-pre {
-    white-space: pre-wrap;
-    font-family: monospace;
-    font-size: 18px;
-}
-
-.carousel-container {
-    width: 100%;
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-.carousel-item {
-    display: none;
-    color: #4d5362;
-}
-
-.active {
-    display: block;
-}
-
-p {
-    color: white;
-}
-h2, h3, h4 {
-    padding-top: 30px;
-    color: #4caf50;
 }
